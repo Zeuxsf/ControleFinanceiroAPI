@@ -32,7 +32,7 @@ async def registrar(usuario_schema: UsuarioSchema, session: Session = Depends(pe
         return {'mensagem': 'Já existe um usuário com esse E-mail.'}
     else:
         senha_criptografada = bcrypt_context.hash(usuario_schema.senha)
-        novo_usuario = Usuario(usuario_schema.nome, usuario_schema.email, senha_criptografada)
+        novo_usuario = Usuario(usuario_schema.nome, usuario_schema.email, senha_criptografada,usuario_schema.saldo, usuario_schema.admin)
         session.add(novo_usuario)
         session.commit()
         return {'mensagem': 'Usuário cadastrado com sucesso!'}

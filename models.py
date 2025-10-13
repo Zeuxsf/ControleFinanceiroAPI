@@ -32,7 +32,7 @@ class Transacao(base):
     tipo = Column('tipo', String) #Vai ser ENTRADA ou SAÍDA!
     valor = Column('valor', Float)
     categoria = Column('categoria', String) #Categorias de gasto, Ex.: Lazer, Comida, Esporte
-    data = Column(DateTime, server_default=func.now())
+    data = Column(DateTime, server_default=func.current_date())
     descricao = Column('descricao', String) #Descricao da compra, opcional   
     
     def __init__(self, usuario_id, tipo, valor, categoria, descricao):
