@@ -1,5 +1,10 @@
-from sqlalchemy import create_engine, Column, String, Integer, Boolean, Float, ForeignKey, DateTime, func
+from sqlalchemy import create_engine, Column, String, Integer, Boolean, Float, ForeignKey, DateTime, func, Date
+import datetime
 from sqlalchemy.orm import declarative_base
+
+#Data atual ( o do sqlalchemy não prestou pro meu uso )
+agora = datetime.datetime.now()
+data_atual = agora.date()
 
 #Cria o banco de dados
 db = create_engine('sqlite:///banco.db')
@@ -32,14 +37,15 @@ class Transacao(base):
     tipo = Column('tipo', String) #Vai ser ENTRADA ou SAÍDA!
     valor = Column('valor', Float)
     categoria = Column('categoria', String) #Categorias de gasto, Ex.: Lazer, Comida, Esporte
-    data = Column(DateTime, server_default=func.current_date())
+    data = Column(Date)
     descricao = Column('descricao', String) #Descricao da compra, opcional   
     
-    def __init__(self, usuario_id, tipo, valor, categoria, descricao):
+    def __init__(self, usuario_id, tipo, valor, categoria, descricao, data = data_atual):
         self.usuario_id = usuario_id
         self.tipo = tipo
         self.valor = valor
         self.categoria = categoria
+        self.data = data
         self.descricao = descricao
 
         
