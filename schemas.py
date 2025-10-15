@@ -1,5 +1,6 @@
 from pydantic import BaseModel
 from typing import Optional
+from datetime import date
 
 #Vai facilitar a entrada de informações no banco de dados, e deixar mais customizável
 class UsuarioSchema(BaseModel):
@@ -27,4 +28,13 @@ class TransacaoSchema(BaseModel):
 
     class Config:
         from_attributes = True
-    
+
+class RespostaSchema(BaseModel):
+    id: int
+    tipo: str
+    categoria: str
+    valor: float
+    data: date
+
+    class Config:
+        from_attributes = True    
