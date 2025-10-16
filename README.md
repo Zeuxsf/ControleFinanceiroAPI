@@ -108,23 +108,6 @@ uvicorn app.main:app --reload
 
 http://localhost:8000/docs
 
-
----
-
-🧩 Estrutura do projeto
-
-app/
-├── main.py              # Ponto de entrada da aplicação
-├── models.py            # Modelos do banco de dados
-├── schemas.py           # Validação e serialização de dados
-├── auth.py              # Lógica de autenticação e geração de tokens
-├── crud.py              # Operações CRUD
-├── routers/
-│   ├── auth.py          # Rotas de autenticação
-│   └── order.py         # Rotas de transações
-└── database.py          # Conexão e inicialização do banco
-
-
 ---
 
 📊 Exemplos de uso (Swagger UI)
