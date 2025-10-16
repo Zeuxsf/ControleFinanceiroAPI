@@ -28,6 +28,13 @@ class TransacaoSchema(BaseModel):
 
     class Config:
         from_attributes = True
+        
+class EditarSchema(BaseModel):
+    categoria: str #Categorias de gasto, Ex.: Lazer, Comida, Esporte
+    descricao: Optional[str]       
+
+    class Config:
+        from_attributes = True        
 
 class RespostaSchema(BaseModel):
     id: int
@@ -38,3 +45,14 @@ class RespostaSchema(BaseModel):
 
     class Config:
         from_attributes = True    
+
+class RespostaCategoriaSchema(BaseModel):
+    categoria: str
+    valor: float
+
+    class Config:
+        from_attributes = True
+
+class ResumoSchema(BaseModel):
+    ENTRADA: list[RespostaCategoriaSchema]
+    SAÍDA: list[RespostaCategoriaSchema]                        
