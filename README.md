@@ -126,6 +126,6 @@ Sinta-se à vontade para usar, modificar e contribuir!
 
 ---
 
-Autor: Alexandre S. de França
+*Criado por: Alexandre S. de França*
 
 
